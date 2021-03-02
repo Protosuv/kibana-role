@@ -1,0 +1,29 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: centos8
+    image: docker.io/pycontribs/centos:8
+    pre_build_image: true
+  # - name: centos7
+  #   image: docker.io/pycontribs/centos:7
+  #   pre_build_image: true
+  # - name: ubuntu
+  #   image: docker.io/pycontribs/ubuntu:latest
+  #   pre_build_image: true
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      all:
+        kibana_distr_type: local
+        kibana_version: "7.11.1"
+        kibana_url: "https://artifacts.kibana.co/downloads/kibana/kibana-7.11.1-linux-x86_64.tar.gz"
+        kibana_distr_name: kibana-{{ kibana_version }}-linux-x86_64.tar.gz
+        kibana_folder: "{{ kibana_distr_name.split('-')[:2] | join('-')  }}"
+        kibana_home: "/opt/kibana/{{ kibana_folder }}"
+        environ_type: "docker"
+verifier:
+  name: ansible
