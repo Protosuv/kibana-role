@@ -2,7 +2,7 @@
 # defaults file for kibana-role
   kibana_distr_type: remote
   kibana_version: "7.11.1"
-  # https://artifacts.kibana.co/downloads/kibana/kibana-7.11.1-linux-x86_64.tar.gz
+  # https://artifacts.elastic.co/downloads/kibana/kibana-7.11.1-linux-x86_64.tar.gz
   kibana_distr_name: kibana-{{ kibana_version }}-linux-x86_64.tar.gz
   kibana_folder: "{{ kibana_distr_name.split('-')[:2] | join('-')  }}"
   kibana_home: "/opt/kibana/{{ kibana_folder }}"
