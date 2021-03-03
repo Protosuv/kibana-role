@@ -10,5 +10,4 @@
       cmd: "kibana --version"
     environment:
       PATH: "$PATH:{{ kibana_home }}/bin"
-      # PATH: "$PATH:/opt/kibana/kibana-7.11.1/bin"
     changed_when: false
