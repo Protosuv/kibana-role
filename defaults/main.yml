@@ -6,3 +6,4 @@
   kibana_distr_name: kibana-{{ kibana_version }}-linux-x86_64.tar.gz
   kibana_folder: "{{ kibana_distr_name.split('-')[:2] | join('-')  }}"
   kibana_home: "/opt/kibana/{{ kibana_folder }}"
+  environ_type: "docker"
